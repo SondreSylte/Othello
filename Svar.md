@@ -42,7 +42,8 @@ RestartException arver fra RuntimeException.
 Spill som kan være likt men vanskeligere å implementere er spill som har en grid, men med mye mer kompliserte regler. Feks sjakk. F.eks vil spillet Dam være enklere å implementere enn Sjakk, siden reglene i Dam er enklere. I sjakk måtte en hatt mange flere klasser for å definere de forskjellige brikkene. 
 
 1.4) SOLID består av fem prinsipp: Single Responsibility, Open/Closed, Liskov Substitution, Interfae Segefation og Dependency Inversion. 
-    - 
+
+**Single Responsibility** tar utgangspunkt i at en klasse skal ha en oppgave. Fordelen er at klassen vil være enklere å teste, den vil ha mindre funksjoner, som vil føre til 
 
 
 ## Oppgave 2
