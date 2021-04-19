@@ -20,7 +20,30 @@ Feil i koden: I TicTacToe spillet merker jeg at det er veldig mye enklere å sl�
 
 - Encapsulation blir brukt i flere klasser. Her blir det brukt setters og getters for å samle kode og beskytte den fra å bli brukt av koden som er utenfor. Feks blir det laget en privat variabel som bare kan benyttes av public methods i klassen. Det blir videre brukt en get metode for å få access, som returnerer en den private variabelen. Dette skjer blant annet i Grid, IGrid, Game, GameBoard, ClickableGridListener, GamePanel, MainMenu og AbstractPlayer. 
 
-- Inheritance i Java er en metode der et objekt får tilgang til alle 
+- Inheritance/arv i Java er en metode som gjør det mulig å arve "attributes" og metoder fra en klasse til en annen. Arv deles inn i to kategorier, subclass (child) - klassen som arver fra den andre klassen, og superclass (parent) - klassen som blir arvet fra. For å arve en klasse, brukes "extends". Omtrent det samme skjer når en klasse skal ha tilgang til metoder i et interface, da blir det brukt "implements". 
+IGrid<T> arver fra Iterable<T>. 
+ConnectFour arver fra klassen Game. 
+GameBoard arver fra Grid<Player>. 
+TicTacToe arver fra Game. 
+ClickableGrid arver fra JPanel. 
+GamePanel arver fra JPanel.
+ConsolePlayer arver fra AbstractPlayer.
+DumbPlayer arver fra AbstractPlayer.
+GameEndedException arver fra RuntimeException.
+GuiPlayer arver fra AbstractPlayer.
+MiniMaxPlayer arver fra AbstractPlayer.
+RandomPlayer arver fra AbstractPlayer.
+RestartException arver fra RuntimeException.
+
+- Polymorphism brukes når vi har mange klasser som er relatert til hverandre gjennom arv. 
+
+1.3) Spill som er enkle å lage som en utvidelse er feks "fem på rad", "seks på rad" osv. Det er veldig enkelt å gjøre, siden det kommer til å bruke samme regler og kode som spillene som er implementert, sett bort i fra hvor stor grid er og hvor mange brikker en må ha på rad. Andre spill på som er mulig å implementere kan være Minesweeper, basert på at vi allerede har en grid og to spillere som spiller mot hverandre. Dam er også et eksempel på et spill som burde være mulig å implementere. Spillet består av et 8x8 grid der målet er å komme over til motstanderen sin side ved å hoppe over brikkene. 
+
+Spill som kan være likt men vanskeligere å implementere er spill som har en grid, men med mye mer kompliserte regler. Feks sjakk. F.eks vil spillet Dam være enklere å implementere enn Sjakk, siden reglene i Dam er enklere. I sjakk måtte en hatt mange flere klasser for å definere de forskjellige brikkene. 
+
+1.4) SOLID består av fem prinsipp: Single Responsibility, Open/Closed, Liskov Substitution, Interfae Segefation og Dependency Inversion. 
+    - 
+
 
 ## Oppgave 2
 (skriv svar her)
