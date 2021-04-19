@@ -16,6 +16,12 @@ Feil i koden: I TicTacToe spillet merker jeg at det er veldig mye enklere å sl�
 
 1.2)
 
+- Abstraction blir brukt i to klasser, Game og AbstractPlayer. Her er målet å gjemme visse detaljer slik at en bare viser det mest nødvendige. I disse klassene er det ikke mulig å lage objekt. For å få tilgang, må det være arvet fra en annen klasse. 
+
+- Encapsulation blir brukt i flere klasser. Her blir det brukt setters og getters for å samle kode og beskytte den fra å bli brukt av koden som er utenfor. Feks blir det laget en privat variabel som bare kan benyttes av public methods i klassen. Det blir videre brukt en get metode for å få access, som returnerer en den private variabelen. Dette skjer blant annet i Grid, IGrid, Game, GameBoard, ClickableGridListener, GamePanel, MainMenu og AbstractPlayer. 
+
+- Inheritance i Java er en metode der et objekt får tilgang til alle 
+
 ## Oppgave 2
 (skriv svar her)
 
