@@ -35,16 +35,23 @@ MiniMaxPlayer arver fra AbstractPlayer.
 RandomPlayer arver fra AbstractPlayer.
 RestartException arver fra RuntimeException.
 
-- Polymorphism brukes når vi har mange klasser som er relatert til hverandre gjennom arv. 
+- Polymorphism brukes når vi har mange klasser som er relatert til hverandre gjennom arv. **Skrive mer her**
 
 1.3) Spill som er enkle å lage som en utvidelse er feks "fem på rad", "seks på rad" osv. Det er veldig enkelt å gjøre, siden det kommer til å bruke samme regler og kode som spillene som er implementert, sett bort i fra hvor stor grid er og hvor mange brikker en må ha på rad. Andre spill på som er mulig å implementere kan være Minesweeper, basert på at vi allerede har en grid og to spillere som spiller mot hverandre. Dam er også et eksempel på et spill som burde være mulig å implementere. Spillet består av et 8x8 grid der målet er å komme over til motstanderen sin side ved å hoppe over brikkene. 
 
 Spill som kan være likt men vanskeligere å implementere er spill som har en grid, men med mye mer kompliserte regler. Feks sjakk. F.eks vil spillet Dam være enklere å implementere enn Sjakk, siden reglene i Dam er enklere. I sjakk måtte en hatt mange flere klasser for å definere de forskjellige brikkene. 
 
-1.4) SOLID består av fem prinsipp: Single Responsibility, Open/Closed, Liskov Substitution, Interfae Segefation og Dependency Inversion. 
+1.4) SOLID består av fem prinsipp: Single Responsibility, Open/Closed, Liskov Substitution, Interfae Segregation og Dependency Inversion. 
 
-**Single Responsibility** tar utgangspunkt i at en klasse skal ha en oppgave. Fordelen er at klassen vil være enklere å teste, den vil ha mindre funksjoner, som vil føre til 
+**Single Responsibility** tar utgangspunkt i at en klasse skal ha en oppgave. Fordelen er at klassen vil være enklere å teste, den vil ha mindre funksjoner, som vil føre til færre avhengigheter, og den vil ha bedre organisering som gjør det lettere å feilsøke og finne frem i. Det blir brukt i flere klasser, alle steder hvor det blir utført en oppgave. Feks vil klassen TicTacToe ha en oppgave, som er å implementere TicTacToe, i forskjell til ConnectFour som har i oppgave å implementere ConnectFour. Om dette skjedde under en og samme klasse, ville det blitt rot. I Player finnes også eksempel, da det har blitt delt inn klasser for dei forskjellige spillertypene. Feks GuiPlayer, som har i mål om å bruke input fra GUI og ConsolePlayer, som har i mål om å lese fra terminal.
 
+**Open/Closed** går ut på at en klasse skal være åpen for utvidelse, men samtidig lukket for modifikasjon. Det gjør at vi stopper oss sjøl eller andre fra å modifisere eksisterende kode som kan resultere i bugs. Isteden for å potensielt ødelegge kode, kan en bruke "extend" og arve fra en annen klasse som har kode vi kan bruke, utenom å ødelegge. Dette blir gjort flere steder, viser til tidligere svar om arv. 
+
+**Liskov Substitution** 
+
+**interface Segregation** går ut på å dele et større interface inn i flere små interface slik at metodene vi arver blir mer "spesifike" for den oppgaven vi vil at arveklassen skal utføre. Feks vil et stort interface ha flere metoder som kan være unødvendige for klassene vi vil lage. Ved å lage flere spesifike Interface vil vi minimere dette. Dette blir ikke brukt så mye i filen, da det bare eksisterer tre interface som ikke er store nok til at det er poeng å dele de opp. 
+
+**Dependency Inversion** 
 
 ## Oppgave 2
 (skriv svar her)
