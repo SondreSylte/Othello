@@ -3,6 +3,8 @@ package inf101.sem2.game;
 
 import inf101.grid.Location;
 import inf101.sem2.player.Player;
+import inf101.grid.GridDirection;
+import inf101.sem2.terminal.TerminalGraphics;
 
 public class Othello extends Game {
 
