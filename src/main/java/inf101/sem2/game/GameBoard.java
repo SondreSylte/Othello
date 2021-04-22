@@ -126,4 +126,8 @@ public class GameBoard extends Grid<Player> {
 		fillCopy(board);
 		return board;
 	}
+
+	public void flip(Location loc, Player currentPlayer) {
+		super.set(loc, currentPlayer);
+	}
 }

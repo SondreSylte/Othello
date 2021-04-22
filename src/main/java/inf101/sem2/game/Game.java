@@ -185,6 +185,9 @@ public abstract class Game {
 	public Player getCurrentPlayer() {
 		return players.getCurrentPlayer();
 	}
+	public Player nextPlayer(){
+		return players.nextPlayer();
+	}
 
 	/*public Player getNextPlayer(){
 		return players.getNextPlayer();
