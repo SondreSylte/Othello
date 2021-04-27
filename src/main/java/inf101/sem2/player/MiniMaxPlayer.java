@@ -34,8 +34,10 @@ public class MiniMaxPlayer extends AbstractPlayer {
 
 	@Override
 	public Location getMove(Game game) {
-		Strategy best = bestMove(game, depth);
-		return best.move;
+		//Strategy best = bestMove(game, depth);
+		Strategy randome = new Strategy(game.getPossibleMoves().get(0),game );
+		return randome.move;
+		//return game.getPossibleMoves().get(0);
 	}
 
 	/**

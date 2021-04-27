@@ -189,10 +189,6 @@ public abstract class Game {
 		return players.nextPlayer();
 	}
 
-	/*public Player getNextPlayer(){
-		return players.getNextPlayer();
-	}*/
-
 	public List<Location> getPossibleMoves() {
 		ArrayList<Location> moves = new ArrayList<>();
 		for(Location loc : board.locations()) {

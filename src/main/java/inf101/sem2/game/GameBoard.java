@@ -102,6 +102,15 @@ public class GameBoard extends Grid<Player> {
 		return count;
 	}
 
+	public int countNumOnBoard(Player p){
+		int count = 0;
+		for (Location loc : locations())
+			if (get(loc) == p) {
+				count += 1;
+			}
+		return count;
+	}
+
 	/**
 	 * This method checks whether all locations of the board is occupied
 	 * or there are any empty places on the board.

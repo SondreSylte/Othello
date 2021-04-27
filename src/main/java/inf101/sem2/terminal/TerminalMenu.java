@@ -27,9 +27,9 @@ public class TerminalMenu {
 			case 2:
 				game = new ConnectFour(new TerminalGraphics(), players.get(0), players.get(1));
 				break;
-			/*case 3:
+			case 3:
 				game = new Othello(new TerminalGraphics(), players.get(0), players.get(1));
-				break;*/
+				break;
 			default:
 				throw new IllegalArgumentException("Unexpected value: " + choice);
 		}

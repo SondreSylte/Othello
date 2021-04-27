@@ -63,6 +63,10 @@ public class PlayerList implements Iterable<Player> {
 		return getCurrentPlayer();
 	}
 
+	/*public Player notCurrentPlayer(){
+
+	}*/
+
 	/**
 	 * If the end is reached
 	 * the index restarts on the beginning.

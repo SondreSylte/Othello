@@ -144,11 +144,12 @@ public class GameGUI implements ActionListener, Graphics {
 	/**
 	 * Maps from Piece values to colors
 	 *
-	 * @param pieceAt The piece to be drawn
+	 * @param //pieceAt The piece to be drawn
 	 * @return The color that this GUI implementation associates with the provided piece
 	 */
 	protected List<Color> getColors() {
 		Color[] colors = {Color.BLUE, Color.RED};
 		return Arrays.asList(colors);
 	}
+
 }
