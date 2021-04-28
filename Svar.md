@@ -54,8 +54,32 @@ Spill som kan være likt men vanskeligere å implementere er spill som har en gr
 **Dependency Inversion** 
 
 ## Oppgave 2
-(skriv svar her)
+
+Planen for Othello er å starte med å extende Game klassen, slik at metodene som blir brukt i TicTacToe og ConnectFour, også kan bli brukt i Othello. Dette gjør det allerede enklere da en slipper å lage spillet fra grunn. Istedet skal en implementere metodene. 
+
+Starter med å lage to Othello-metoder som skal plassere de første fire brikkene på brettet. I den øverste metoden, "public Othello(Graphics graphics, Player p1, Player p2)",  blir det plassert brikker på brettet, til bruk i terminalen. Den andre metoden, "public Othello(Graphics graphics, Iterable<Player> players)", er til GUI. 
+
+Vil videre implementere metodene slik at Othello fungerer, disse metodene kommer til å være:
+
+ - public boolean canPlace(Location loc): vil være en viktig funksjon for spillet, som vil avgjøre om det er mulig å plassere en brikke i en lokasjon, basert på om det ikke ligger en brikke på lokasjonen, om det vil bli flippet en spillbrikke etter plasseringen eller om det er lov å plassere brikken der. 
+
+ - public List<Location> getPossibleMoves(): kommer til å bruke canPlace og lagre lokasjonene det er mulighet for å plassere i, i en listen. Metoden vil returnere listen med lokasjoner. 
+
+ - public List<Location> getAffectedDisks(Location loc, GridDirection dir): 
+
+ - public void flipDisks(Location currentLoc): metoden vil bruke en liste av affected disks og flippe de om listen ikke er tom. 
+
+ - public void makeMove(Location loc): Den vil bruke canPlace til å vurdere om en kan gjøre en move. Om den kan gjøre en move, vil den sette den nye lokasjonen, flippe affected disks og så gå videre til neste spiller. 
+
+ - public boolean gameOver(): en metode for å avgjøre når spillet er over. Det vil være om den ene spilleren har flere brikker enn den andre ved endt spill, enten når brettet er fullt eller når det ikke er mulig å gjøre flere moves. 
+
+ 
+
+
+
 
 ## Oppgave 3
-(skriv svar her)
+
+
+
 
