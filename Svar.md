@@ -59,7 +59,7 @@ Planen for Othello er å starte med å extende Game klassen, slik at metodene so
 Kommer til å ha som mål i starten å kunne plassere brikkene på brettet ved å bruke canPlace. Videre vil jeg utvikle programmet mer og mer. Mest sannsynlig vil jeg gå videre med å få til å flippe brikkene, før jeg lager en isWinner som forteller hvem som vinner og så gameOver som forteller når spillet er over. Deretter vil jeg sørge for at spillet fungerer i både GUI og terminal før jeg lager testene. Kommer til å prøve å lage tester til de fleste metodene.
 I tillegg vil jeg lage et klassediagram der jeg tar utgangspunkt i det som allerede eksisterer, og så utvikle det etter hvert som metoden blir implementert.  
 
-Starter med å lage to Othello-metoder som skal plassere de første fire brikkene på brettet. I den øverste metoden, "public Othello(Graphics graphics, Player p1, Player p2)",  blir det plassert brikker på brettet, til bruk i terminalen. Den andre metoden, "public Othello(Graphics graphics, Iterable<Player> players)", er til GUI. 
+Starter med å lage to Othello konstruktører som skal plassere de første fire brikkene på brettet. I den øverste, "public Othello(Graphics graphics, Player p1, Player p2)",  blir det plassert brikker på brettet, til bruk i terminalen. Den andre konstruktøren, "public Othello(Graphics graphics, Iterable<Player> players)", er til GUI. 
 
 Vil videre implementere metodene slik at Othello fungerer, disse metodene kommer til å være sentrale:
 
