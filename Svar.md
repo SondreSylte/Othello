@@ -59,7 +59,7 @@ Planen for Othello er å starte med å extende Game klassen, slik at metodene so
 
 Starter med å lage to Othello-metoder som skal plassere de første fire brikkene på brettet. I den øverste metoden, "public Othello(Graphics graphics, Player p1, Player p2)",  blir det plassert brikker på brettet, til bruk i terminalen. Den andre metoden, "public Othello(Graphics graphics, Iterable<Player> players)", er til GUI. 
 
-Vil videre implementere metodene slik at Othello fungerer, disse metodene kommer til å være:
+Vil videre implementere metodene slik at Othello fungerer, disse metodene kommer til å være sentrale:
 
  - public boolean canPlace(Location loc): vil være en viktig funksjon for spillet, som vil avgjøre om det er mulig å plassere en brikke i en lokasjon, basert på om det ikke ligger en brikke på lokasjonen, om det vil bli flippet en spillbrikke etter plasseringen eller om det er lov å plassere brikken der. 
 
