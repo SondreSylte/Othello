@@ -35,7 +35,7 @@ MiniMaxPlayer arver fra AbstractPlayer.
 RandomPlayer arver fra AbstractPlayer.
 RestartException arver fra RuntimeException.
 
-- Polymorphism brukes når vi har mange klasser som er relatert til hverandre gjennom arv. **Skrive mer her**
+- Polymorphism brukes når vi har mange klasser som er relatert til hverandre gjennom arv. Polimorfisme er i dette tilfellet brukt i klasser som utvider game. Det er i hovedsak spillene; Othello, ConnectFour og TicTacToe. Polimorfisme blir også brukt siden GameBoard utvider grid. 
 
 1.3) Spill som er enkle å lage som en utvidelse er feks "fem på rad", "seks på rad" osv. Det er veldig enkelt å gjøre, siden det kommer til å bruke samme regler og kode som spillene som er implementert, sett bort i fra hvor stor grid er og hvor mange brikker en må ha på rad. Andre spill på som er mulig å implementere kan være Minesweeper, basert på at vi allerede har en grid og to spillere som spiller mot hverandre. Dam er også et eksempel på et spill som burde være mulig å implementere. Spillet består av et 8x8 grid der målet er å komme over til motstanderen sin side ved å hoppe over brikkene. 
 
@@ -47,7 +47,7 @@ Spill som kan være likt men vanskeligere å implementere er spill som har en gr
 
 **Open/Closed** går ut på at en klasse skal være åpen for utvidelse, men samtidig lukket for modifikasjon. Det gjør at vi stopper oss sjøl eller andre fra å modifisere eksisterende kode som kan resultere i bugs. Isteden for å potensielt ødelegge kode, kan en bruke "extend" og arve fra en annen klasse som har kode vi kan bruke, utenom å ødelegge. Dette blir gjort flere steder, viser til tidligere svar om arv. 
 
-**Liskov Substitution** 
+**Liskov Substitution**  Hver underklasse skal kunne erstattes av foreldre klassen. Man kan utvide en klasse men man kan ikke stramme den mer inn. Feks game klassen, den blir utvidet men ikke strammet inn.
 
 **interface Segregation** går ut på å dele et større interface inn i flere små interface slik at metodene vi arver blir mer "spesifike" for den oppgaven vi vil at arveklassen skal utføre. Feks vil et stort interface ha flere metoder som kan være unødvendige for klassene vi vil lage. Ved å lage flere spesifike Interface vil vi minimere dette. Dette blir ikke brukt så mye i filen, da det bare eksisterer tre interface som ikke er store nok til at det er poeng å dele de opp. 
 
@@ -67,7 +67,7 @@ Vil videre implementere metodene slik at Othello fungerer, disse metodene kommer
 
  - public List<Location> getPossibleMoves(): kommer til å bruke canPlace og lagre lokasjonene det er mulighet for å plassere i, i en listen. Metoden vil returnere listen med lokasjoner. 
 
- - public List<Location> getAffectedDisks(Location loc, GridDirection dir): 
+ - public List<Location> getAffectedDisks(Location loc, GridDirection dir): kommer til å lage en liste med affected disks, som er brikkene som blir påvirket av valget til spilleren. 
 
  - public void flipDisks(Location currentLoc): metoden vil bruke en liste av affected disks og flippe de om listen ikke er tom. 
 
@@ -76,13 +76,9 @@ Vil videre implementere metodene slik at Othello fungerer, disse metodene kommer
  - public boolean gameOver(): en metode for å avgjøre når spillet er over. Det vil være om den ene spilleren har flere brikker enn den andre ved endt spill, enten når brettet er fullt eller når det ikke er mulig å gjøre flere moves. 
 
 
-
- 
-
-
-
-
 ## Oppgave 3
+
+
 
 
 
