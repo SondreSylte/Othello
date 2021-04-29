@@ -15,9 +15,9 @@ public class Othello extends Game {
 
     /**
      *
-     * @param graphics The graphics used to display the game for the human players
-     * @param p1 - First player
-     * @param p2 - Second player
+     * @param graphics Grafikken brukt for å displaye spillet for spillere
+     * @param p1 - Første spiller
+     * @param p2 - Motspiller
      */
 
     public Othello(Graphics graphics, Player p1, Player p2) {
@@ -48,10 +48,23 @@ public class Othello extends Game {
 
     }
 
+    /**
+     * Sjekker først om det er en brikke på lokasjonen, i tilfellet returneres false.
+     * Deretter sjekker den lokasjoner i alle retninger. Dersom en nabo er motsatt farge,
+     * sjekkes de resterende naboene i samme retning og det returneres true dersom den møter på
+     * en brikke i samme farge.
+     * Posisjonen er da et lovlig trekk
+     *
+     * @param loc    - where to place
+     * @return boolean
+     */
+
 
 
     @Override
     public boolean canPlace(Location loc){
+            if(!(board.get(loc) == null))
+                return false;
             for (GridDirection d : GridDirection.EIGHT_DIRECTIONS) {
                 Location currentLoc = loc.getNeighbor(d);
                 if (!board.isOnGrid(currentLoc)){
@@ -69,38 +82,20 @@ public class Othello extends Game {
             }
             return false;
         }
-        /*
-    @Override
-    public boolean isWinner(Player player) {
-        return false;
-    }*/
 
-    /*@Override
-    public boolean isWinner(Player player) {
-        int pieces = 0;
-        int player1 = board.countNumInRow(getCurrentPlayer());
-        int player2 = board.countNumInRow(nextPlayer());
-
-
-            if (getPosMovesOthello().isEmpty())
-                if (player1 > player2)
-                    return true;
-
-            if (board.isFull())
-                for (Location l : board.locations())
-                    pieces++;
-            if (board.countNumOnBoard(player) > pieces / 2) {
-                return true;
-            }
-
-
-        return false;
-    }*/
+    /**
+     * Metoden sjekker først om brettet ikke er fullt. Om det er fullt, returneres false, da er det ingen vinner
+     * foreløpig. Videre sjekker metoden for alle lokasjoner som player1 har og så hvor mange lokasjoner player 2 har.
+     * Så sjekkes det hvem som har mest brikker på brettet.
+     *
+     * @param player
+     * @return boolean
+     */
 
     @Override
     public boolean isWinner(Player player) {
-        int mainPlayer = 0;
-        int opponent = 0;
+        int player1 = 0;
+        int player2 = 0;
         if(!board.isFull()){
             return false;
         }
@@ -110,14 +105,21 @@ public class Othello extends Game {
 
         for(Location loc : board.locations()){
             if(board.get(loc) == player){
-                mainPlayer++;
+                player1++;
             }
             else if(board.get(loc) != null && board.get(loc) != player){
-                opponent++;
+                player2++;
             }
         }
-        return mainPlayer > opponent;
+        return player1 > player2;
     }
+
+    /**
+     * Bruker canPlace til å finne mulige lokasjoner der brikker kan plasseres. Lokasjonene klagres i en liste som
+     * heter moves.
+     *
+     * @return moves
+     */
 
     public List<Location> getPossibleMoves() {
         ArrayList<Location> moves = new ArrayList<>();
@@ -129,38 +131,56 @@ public class Othello extends Game {
         return moves;
     }
 
+    /**
+     * Fra en lokasjon sjekkes alle lokasjoner på brettet i retning dir.
+     * Alle brikker som skal flippes legges da til i en liste som returneres
+     *
+     * @param loc
+     * @param dir
+     * @return
+     */
 
-    public List<Location> getOpponentDisks(Location loc, GridDirection dir){
+    public List<Location> getAffectedDisks(Location loc, GridDirection dir){
         Player player = getCurrentPlayer();
-        List<Location> disks = new ArrayList<>();
-        Location start = loc.getNeighbor(dir);
-        while(board.isOnGrid(start) && (board.get(start) != player) && (board.get(start) != null )){
-            disks.add(start);
-            start = start.getNeighbor(dir);
-            if (board.isOnGrid(start) && board.get(start) == player){
-                disks.add(start);
+        List<Location> affectedDisks = new ArrayList<>();
+        Location startLoc = loc.getNeighbor(dir);
+        while(board.isOnGrid(startLoc) && (board.get(startLoc) != player) && (board.get(startLoc) != null )){
+            affectedDisks.add(startLoc);
+            startLoc = startLoc.getNeighbor(dir);
+            if (board.isOnGrid(startLoc) && board.get(startLoc) == player){
+                affectedDisks.add(startLoc);
                 break;
             }
         }
-        System.out.println(disks);
-        return disks;
+        return affectedDisks;
     }
 
-
+    /**
+     * Metoden sjekker alle retninger og bruker getAffectedDisk til å lage en liste for lokasjoner som skal flippes
+     * i den gitte retninger. Om Listen ikke er tom, sjekkes det om listen inneholder en lokasjon som har
+     * currentPlayer i, da flippes lokasjonene mellom.
+     * @param currentLoc
+     */
 
     public void flipDisks(Location currentLoc){
         for(GridDirection dir : GridDirection.EIGHT_DIRECTIONS){
-            List<Location> dirList = getOpponentDisks(currentLoc, dir);
+            List<Location> dirList = getAffectedDisks(currentLoc, dir);
+            System.out.println(dirList);
             if (!dirList.isEmpty()){
                 if(checkForCurrentPlayer(dirList)){
                     for(Location l : dirList){
-                        flipDisk(l);
+                        board.flip(l, getCurrentPlayer());
                     }
                 }
             }
         }
     }
 
+    /**
+     * Tar inn en liste og sjekker om den inneholder en lokasjon med typen samme spiller, altså currentPlayer.
+     * @param ls
+     * @return
+     */
     public boolean checkForCurrentPlayer(List<Location> ls) {
         for (Location l : ls){
             if(board.get(l) == getCurrentPlayer()){
@@ -170,11 +190,12 @@ public class Othello extends Game {
         return false;
     }
 
-    public void flipDisk(Location loc){
-        board.flip(loc, getCurrentPlayer());
-    }
-
-
+    /**
+     * Tar inn en lokasjon og sjekker først om en kan plassere en brikke i en lokasjon ved å bruke canPlace.
+     * Om det er mulig å plassere, settes lokasjonen på brettet, så flippes dei påvirkede brikkene, før
+     * nextPlayer() kalles, og det går videre til neste spiller.
+     * @param loc
+     */
     @Override
     public void makeMove(Location loc){
         if(!canPlace(loc)){
@@ -194,12 +215,23 @@ public class Othello extends Game {
         return game;
     }
 
-
+    /**
+     * gameOver metoden brukes når spillet er over, altså når isWinner kalles, eller når det ikke er flere mulige
+     * moves å gjøre. Da kalles det på nextPlayer, og om den heller ikke har flere possibleMoves så er det game over.
+     * Brukes også om brettet er fullt.
+     * @return boolean
+     */
     @Override
     public boolean gameOver() {
         for(Player p : players) {
             if(isWinner(p)) {
                 return true;
+            }
+            if (getPossibleMoves().isEmpty()){
+                players.nextPlayer();
+                if (getPossibleMoves().isEmpty()){
+                    return true;
+                }
             }
         }
 

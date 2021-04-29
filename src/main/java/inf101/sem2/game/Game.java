@@ -158,7 +158,7 @@ public abstract class Game {
 	 * Computes a score for the player p in the current game
 	 * to be used when choosing the best move.
 	 *
-	 * @param game
+	 * @param //game
 	 * @param p
 	 * @return
 	 */

@@ -3,6 +3,8 @@ package inf101.sem2.player;
 import inf101.grid.Location;
 import inf101.sem2.game.Game;
 
+import java.util.List;
+
 /**
  * This AI is based on an algorithm that is not curriculum for INF101, but maybe for INF102.
  * Since many of the students had tried implementing such an AI I have included one in this solution.
@@ -34,9 +36,23 @@ public class MiniMaxPlayer extends AbstractPlayer {
 
 	@Override
 	public Location getMove(Game game) {
-		//Strategy best = bestMove(game, depth);
-		Strategy randome = new Strategy(game.getPossibleMoves().get(0),game );
-		return randome.move;
+		//Strategy random = new Strategy(game.getPossibleMoves().get(0),game );
+		//return random.move;
+
+
+
+		List<Location> possible = game.getPossibleMoves();
+		int rand = 1;
+
+		if (possible.isEmpty())
+			return null;
+
+		Strategy random = new Strategy(possible.get(rand),game);
+
+
+		return random.move;
+
+
 		//return game.getPossibleMoves().get(0);
 	}
 
