@@ -8,16 +8,10 @@ import inf101.sem2.player.Player;
 import inf101.sem2.terminal.TerminalGraphics;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import inf101.sem2.game.Othello;
-import inf101.sem2.game.Game;
-import inf101.sem2.game.GameBoard;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class OthelloTest {
@@ -40,6 +34,10 @@ public class OthelloTest {
         this.board = othello.board;
     }
 
+
+    /*
+    Tester om en lokasjon kan bruke canPlace. assertTrue om den kan, og assertFalse om den ikke kan.
+     */
     @Test
     void testCanPlaceOthello(){
         System.out.println("This is the test for: testCanPlaceOthello");
@@ -49,6 +47,9 @@ public class OthelloTest {
         assertFalse(board.canPlace(loc));
     }
 
+    /*
+    Tester enkelt og grei om en lokasjon er i griden.
+     */
 
     @Test
     void testIsOnGrid(){
@@ -80,18 +81,6 @@ public class OthelloTest {
         int posMovesSize = PossibleMoves.size();
         assertEquals(expectedMoves,posMovesSize);
     }
-
-    @Test
-    void testGetPossibleMovess(){
-        int expectedMoves = 4;
-        Player currentPlayer = othello.getCurrentPlayer();
-        Location loc = new Location(3,4);
-        board.set(loc,currentPlayer);
-        List<Location> PossibleMoves = othello.getPossibleMoves();
-        
-
-    }
-
 
 
     @Test
@@ -125,7 +114,6 @@ public class OthelloTest {
 
     @Test
     void testCheckForCurrentPlayers(){
-
     }
 
 
