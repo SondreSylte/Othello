@@ -55,6 +55,12 @@ public abstract class Game {
 			} else {
 				System.err.println("Invalid move by player " + getCurrentPlayer() + " lost turn.");
 			}
+			graphics.display(board);
+			try {
+				Thread.sleep(1000);
+			} catch (Exception e){
+				e.printStackTrace();
+			}
 		}
 
 		//print results when game is over

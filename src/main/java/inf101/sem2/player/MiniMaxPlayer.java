@@ -49,7 +49,6 @@ public class MiniMaxPlayer extends AbstractPlayer {
 
 		Strategy random = new Strategy(possible.get(rand),game);
 
-
 		return random.move;
 
 

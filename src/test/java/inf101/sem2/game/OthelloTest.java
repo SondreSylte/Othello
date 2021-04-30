@@ -83,12 +83,6 @@ public class OthelloTest {
     }
 
     @Test
-    void testGetPossibleMovess(){
-        System.out.println("ss");
-    }
-
-
-    @Test
     void testGetAffectedDisks(){
         Player currentPlayer = othello.getCurrentPlayer();
         Location loc = new Location(3,5);
@@ -133,5 +127,7 @@ public class OthelloTest {
         assertEquals(currentPlayer,board.get(loc));
 
     }
+
+
 
 }
