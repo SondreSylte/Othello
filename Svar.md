@@ -1,8 +1,6 @@
 # Svar på spørsmål
 
-*I denne filen legger du inn svar på spørsmålene som stilles i oppgaveteksten, eventuelt kommentarer og informasjon om kreative løsninger*
-
-Feil i koden: I TicTacToe spillet merker jeg at det er veldig mye enklere å slå AI i den nederste raden, enn de radene over i griden. Altså, spiller en spillet bare på (0,2), (1,2) eller (2,2) vil en slå AI hver eneste gang. Spiller en derimot høyere oppe i griden, vil det være veldig vanskelig å slå AI. Ser på dette som en feil i koden, der det er mulighet for forbedring. 
+I løpet av denne semesteroppgaven har jeg diskutert og utvekslet ideer til koden ilag med Åsmund Groven, Sanna Rosøy og Eiril Ugulen.
    
 ## Oppgave 1
 
@@ -75,10 +73,20 @@ Vil videre implementere metodene slik at Othello fungerer, disse metodene kommer
 
  - public boolean gameOver(): en metode for å avgjøre når spillet er over. Det vil være om den ene spilleren har flere brikker enn den andre ved endt spill, enten når brettet er fullt eller når det ikke er mulig å gjøre flere moves. 
 
+ I tillegg vil det være nødvendig å endre i klassen MainMenu slik at det er mulig å velge Othello i GUI. Det skjer i actionPerformed metoden. 
+
+Klassediagrammet ligger i information mappen.
 
 ## Oppgave 3
 
+Har denne gang kommentert i koden, men en mer ryddig løsning. Håper dette er bedre kommentert enn forrige gang.
 
+
+Feil i koden: I TicTacToe spillet merker jeg at det er veldig mye enklere å slå AI i den nederste raden, enn de radene over i griden. Altså, spiller en spillet bare på (0,2), (1,2) eller (2,2) vil en slå AI hver eneste gang. Spiller en derimot høyere oppe i griden, vil det være veldig vanskelig å slå AI. Ser på dette som en feil i koden, der det er mulighet for forbedring. 
+
+Noe som kunne vært forbedret er tiden det tar før AI tar et trekk. Den er så rask at det er vanskelig å se om den har gjort riktige trekk. Her skulle det vært et delay. Jeg har derfor sjekket med før og etter bilder gjennom et helt spill, og AI gjør riktige og lovlige trekk. 
+
+Noe annet som har forbedringspotensiale er fargekodene i spillet. Å få til egen farge for Othello som ikke påvirket TicTacToe og ConnectFour hadde vært den beste løsningen. 
 
 
 
