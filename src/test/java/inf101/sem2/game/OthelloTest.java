@@ -82,6 +82,11 @@ public class OthelloTest {
         assertEquals(expectedMoves,posMovesSize);
     }
 
+    @Test
+    void testGetPossibleMovess(){
+        System.out.println("ss");
+    }
+
 
     @Test
     void testGetAffectedDisks(){
