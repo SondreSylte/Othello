@@ -45,7 +45,7 @@ Spill som kan være likt men vanskeligere å implementere er spill som har en gr
 
 **Open/Closed** går ut på at en klasse skal være åpen for utvidelse, men samtidig lukket for modifikasjon. Det gjør at vi stopper oss sjøl eller andre fra å modifisere eksisterende kode som kan resultere i bugs. Isteden for å potensielt ødelegge kode, kan en bruke "extend" og arve fra en annen klasse som har kode vi kan bruke, utenom å ødelegge. Dette blir gjort flere steder, viser til tidligere svar om arv. 
 
-**Liskov Substitution**  Hver underklasse skal kunne erstattes av foreldre klassen. Man kan utvide en klasse men man kan ikke stramme den mer inn. Feks game klassen, den blir utvidet men ikke strammet inn.
+**Liskov Substitution** Hver underklasse B skal kunne erstattes av foreldreklassen A. En kan utvide en klasse men ikke minimere den. Feks game klassen. Den blir utvidet men ikke minimert.
 
 **interface Segregation** går ut på å dele et større interface inn i flere små interface slik at metodene vi arver blir mer "spesifike" for den oppgaven vi vil at arveklassen skal utføre. Feks vil et stort interface ha flere metoder som kan være unødvendige for klassene vi vil lage. Ved å lage flere spesifike Interface vil vi minimere dette. Dette blir ikke brukt så mye i filen, da det bare eksisterer tre interface som ikke er store nok til at det er poeng å dele de opp. 
 
