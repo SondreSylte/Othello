@@ -75,10 +75,7 @@ Vil videre implementere metodene slik at Othello fungerer, disse metodene kommer
 
  I tillegg vil det være nødvendig å endre i klassen MainMenu slik at det er mulig å velge Othello i GUI. Det skjer i actionPerformed metoden. 
 
-
-
-
-
+Klassediagrammet ligger i information mappen.
 
 ## Oppgave 3
 
