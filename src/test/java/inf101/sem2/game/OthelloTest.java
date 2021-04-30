@@ -38,7 +38,6 @@ public class OthelloTest {
         this.nextPlayer = new DumbPlayer('O');
         this.othello = new Othello(new TerminalGraphics(), currentPlayer, nextPlayer);
         this.board = othello.board;
-        //System.out.println(board);
     }
 
     @Test
@@ -49,6 +48,8 @@ public class OthelloTest {
         board.set(loc, currentPlayer);
         assertFalse(board.canPlace(loc));
     }
+
+
     @Test
     void testIsOnGrid(){
         System.out.println("This is the test for: testIsOnGrid");
@@ -58,55 +59,85 @@ public class OthelloTest {
         assertFalse(board.canPlace(loc2));
     }
 
+    /**
+     * Testen vil sammenligne hvor mange brikker hver spiller har, og deretter returnere en vinner.
+     */
     @Test
     void testIsWinner(){
         System.out.println("This is the test for: testIsWinner");
+
     }
 
+    /**
+     *Grunnen til at det e forventet fire lokasjoner er fordi den bare sjekker for den ene spilleren.
+     * Videre lages en liste med possible moves og så sammenlignes de i assertEquals(expected, actual).
+     */
     @Test
     void testGetPossibleMoves(){
         System.out.println("This is the test for: testGetPossibleMoves");
-        int sizeMoves = 4;
+        int expectedMoves = 4;
         List<Location> PossibleMoves = othello.getPossibleMoves();
         int posMovesSize = PossibleMoves.size();
-        assertEquals(sizeMoves,posMovesSize);
+        assertEquals(expectedMoves,posMovesSize);
     }
+
+    @Test
+    void testGetPossibleMovess(){
+        int expectedMoves = 4;
+        Player currentPlayer = othello.getCurrentPlayer();
+        Location loc = new Location(3,4);
+        board.set(loc,currentPlayer);
+        List<Location> PossibleMoves = othello.getPossibleMoves();
+        
+
+    }
+
+
 
     @Test
     void testGetAffectedDisks(){
-        Player curPlayer = othello.getCurrentPlayer();
+        Player currentPlayer = othello.getCurrentPlayer();
         Location loc = new Location(3,5);
         othello.makeMove(loc);
         othello.getGraphics().display(board);
-        List<Location> locs = othello.getAffectedDisks(loc, GridDirection.EAST);
-        for(Location l : locs){
-            assertEquals(curPlayer, board.get(l));
+        List<Location> locations = othello.getAffectedDisks(loc, GridDirection.EAST);
+        for(Location l : locations){
+            assertEquals(currentPlayer, board.get(l));
         }
     }
 
+    /**
+     * Testen plasserer en currentPlayer på en lokasjon der det ligger en motspillers brikke mellom.
+     * Brikken som ligger mellom er flipLocation, som er locationen som vi vil flippe og teste om flipper.
+     * Bruker så flipDisk til å flippe lokasjonene mellom currentPlayer og loc. Da vil flipLocation flippes.
+     * Bruker assertEquals for å sjekke likheten mellom to objekter. assertEquals(expected, actual).
+     */
     @Test
-    void testFlipDisk(){
-        Player curPlayer = othello.getCurrentPlayer();
-        Location loc = new Location(3,5);
-        Location flipLocation = new Location(3,4);
-        board.set(loc,othello.getCurrentPlayer());
-        Player player = board.get(flipLocation);
+    void testFlipDisks(){
+        Player currentPlayer = othello.getCurrentPlayer();
+        Location loc = new Location(5,3);
+        Location flipLocation = new Location(4,3);
+        board.set(loc, othello.getCurrentPlayer());
+        board.get(flipLocation);
         othello.flipDisks(loc);
-        assertEquals(board.get(loc),curPlayer);
+        assertEquals(board.get(loc), currentPlayer);
     }
 
     @Test
     void testCheckForCurrentPlayers(){
 
-
     }
 
+
+    /**
+     * Sjekker enkelt og greit om loc har samme spillbrikke som currentPlayer etter en move.
+     */
     @Test
     void testMakeMove(){
-        Player curPlayer = othello.getCurrentPlayer();
+        Player currentPlayer = othello.getCurrentPlayer();
         Location loc = new Location(3,5);
         othello.makeMove(loc);
-        assertEquals(curPlayer,board.get(loc));
+        assertEquals(currentPlayer,board.get(loc));
 
     }
 

@@ -52,5 +52,6 @@ public class GamePanel extends JPanel {
 	 */
 	public void setColor(Color color) {
 		this.color = color;
+
 	}
 }

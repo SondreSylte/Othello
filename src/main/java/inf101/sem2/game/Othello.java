@@ -1,14 +1,11 @@
 package inf101.sem2.game;
 
 
+import inf101.grid.GridDirection;
 import inf101.grid.Location;
 import inf101.sem2.player.Player;
-import inf101.grid.GridDirection;
-import inf101.sem2.player.PlayerList;
-import inf101.sem2.game.GameBoard;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class Othello extends Game {
@@ -59,8 +56,6 @@ public class Othello extends Game {
      * @return boolean
      */
 
-
-
     @Override
     public boolean canPlace(Location loc){
             if(!(board.get(loc) == null))
@@ -82,6 +77,7 @@ public class Othello extends Game {
             }
             return false;
         }
+
 
     /**
      * Metoden sjekker først om brettet ikke er fullt. Om det er fullt, returneres false, da er det ingen vinner
@@ -114,6 +110,7 @@ public class Othello extends Game {
         return player1 > player2;
     }
 
+
     /**
      * Bruker canPlace til å finne mulige lokasjoner der brikker kan plasseres. Lokasjonene klagres i en liste som
      * heter moves.
@@ -130,6 +127,7 @@ public class Othello extends Game {
         }
         return moves;
     }
+
 
     /**
      * Fra en lokasjon sjekkes alle lokasjoner på brettet i retning dir.
@@ -155,6 +153,7 @@ public class Othello extends Game {
         return affectedDisks;
     }
 
+
     /**
      * Metoden sjekker alle retninger og bruker getAffectedDisk til å lage en liste for lokasjoner som skal flippes
      * i den gitte retninger. Om Listen ikke er tom, sjekkes det om listen inneholder en lokasjon som har
@@ -176,6 +175,7 @@ public class Othello extends Game {
         }
     }
 
+
     /**
      * Tar inn en liste og sjekker om den inneholder en lokasjon med typen samme spiller, altså currentPlayer.
      * @param ls
@@ -190,12 +190,14 @@ public class Othello extends Game {
         return false;
     }
 
+
     /**
      * Tar inn en lokasjon og sjekker først om en kan plassere en brikke i en lokasjon ved å bruke canPlace.
      * Om det er mulig å plassere, settes lokasjonen på brettet, så flippes dei påvirkede brikkene, før
      * nextPlayer() kalles, og det går videre til neste spiller.
      * @param loc
      */
+
     @Override
     public void makeMove(Location loc){
         if(!canPlace(loc)){
@@ -221,6 +223,7 @@ public class Othello extends Game {
      * Brukes også om brettet er fullt.
      * @return boolean
      */
+
     @Override
     public boolean gameOver() {
         for(Player p : players) {
@@ -243,6 +246,4 @@ public class Othello extends Game {
     public String getName() {
         return "Othello";
     }
-
-
 }
