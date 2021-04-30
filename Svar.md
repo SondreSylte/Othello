@@ -73,8 +73,13 @@ Vil videre implementere metodene slik at Othello fungerer, disse metodene kommer
 
  - public boolean gameOver(): en metode for å avgjøre når spillet er over. Det vil være om den ene spilleren har flere brikker enn den andre ved endt spill, enten når brettet er fullt eller når det ikke er mulig å gjøre flere moves. 
 
+ I tillegg vil det være nødvendig å endre i klassen MainMenu slik at det er mulig å velge Othello i GUI. Det skjer i actionPerformed metoden. 
+
 
 ## Oppgave 3
+
+Har denne gang kommentert i koden, men en mer ryddig løsning. Håper dette er bedre kommentert enn forrige gang.
+
 
 Feil i koden: I TicTacToe spillet merker jeg at det er veldig mye enklere å slå AI i den nederste raden, enn de radene over i griden. Altså, spiller en spillet bare på (0,2), (1,2) eller (2,2) vil en slå AI hver eneste gang. Spiller en derimot høyere oppe i griden, vil det være veldig vanskelig å slå AI. Ser på dette som en feil i koden, der det er mulighet for forbedring. 
 
